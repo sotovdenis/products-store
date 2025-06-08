@@ -28,11 +28,10 @@ public class ProductController {
     @PutMapping("/product/all")
     public void changeStatus(
             @RequestParam("id") UUID id,
-            @RequestParam("newStatus") int newStatus
+            @RequestParam("newStatus") ProductStatus newStatus
     ) {
-        productService.changeStatus(id, newStatus);
+        productService.changeStatus(id, newStatus.ordinal());
     }
-
 
     @GetMapping("/product/{id}")
     public Product getProductById(@PathVariable String id) {

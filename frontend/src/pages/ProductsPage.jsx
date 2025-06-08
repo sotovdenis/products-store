@@ -28,30 +28,31 @@ const ProductsPage = () => {
         <div className="form">
             <h1>Список продуктов</h1>
 
-            <CreateForm onRefresh={handleRefresh}/>
+            <div>
+                <CreateForm onRefresh={handleRefresh}/>
+                <div className="sort-controls">
+                    <label htmlFor="status-sort">Сортировать по статусу: </label>
+                    <select
+                        id="status-sort"
+                        value={sortStatus}
+                        onChange={(e) => setSortStatus(e.target.value)}
+                    >
+                        <option value="ALL">Все</option>
+                        <option value="CREATED">Создан</option>
+                        <option value="SAILED">Продан</option>
+                        <option value="ZABRAKOVAN">Забракован</option>
+                    </select>
+                </div>
 
-            <div className="sort-controls">
-                <label htmlFor="status-sort">Сортировать по статусу: </label>
-                <select
-                    id="status-sort"
-                    value={sortStatus}
-                    onChange={(e) => setSortStatus(e.target.value)}
-                >
-                    <option value="ALL">Все</option>
-                    <option value="CREATED">Создан</option>
-                    <option value="SAILED">Продан</option>
-                    <option value="ZABRAKOVAN">Забракован</option>
-                </select>
-            </div>
-
-            <div className="cards-container">
-                {filteredProducts.map((product) => (
-                    <ProductCard
-                        key={product.id}
-                        product={product}
-                        onRefresh={handleRefresh}
-                    />
-                ))}
+                <div className="cards-container">
+                    {filteredProducts.map((product) => (
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                            onRefresh={handleRefresh}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

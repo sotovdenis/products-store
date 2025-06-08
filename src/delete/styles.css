@@ -143,7 +143,7 @@ input:focus, textarea:focus, select:focus {
     color: white;
 }
 
-.status-indicator.zabrakovan {
+.status-indicator.ZABRAKOVAN {
     background-color: #ef4444;
     color: white;
 }

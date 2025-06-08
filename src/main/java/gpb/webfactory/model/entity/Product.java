@@ -13,15 +13,17 @@ public class Product {
     private String name;
     private String description;
     private double price;
+    private String brand;
     private ProductStatus status;
 
     protected Product() {
     }
 
-    public Product(String name, String description, double price) {
+    public Product(String name, String description, double price, String brand) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.brand = brand;
         this.status = ProductStatus.CREATED;
     }
 
@@ -52,6 +54,15 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Column(nullable = false, name = "brand")
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     @Column(nullable = false, name = "price")

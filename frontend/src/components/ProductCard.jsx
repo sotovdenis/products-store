@@ -44,6 +44,7 @@ const ProductCard = ({product, onRefresh}) => {
             <h3>{product.name}</h3>
             <p>Описание: {product.description}</p>
             <p>Цена: {product.price}</p>
+            <p>Брэнд: {product.brand}</p>
             <p>
                 Статус:{' '}
                 <StatusIndicator status={product.status}/>

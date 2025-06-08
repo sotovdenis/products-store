@@ -18,22 +18,18 @@ export const api = {
         return response.data;
     },
 
-    updateProduct: async (product) => {
-        const response = await axios.put(`${BASE_URL}/product/all`, product);
-        return response.data;
-    },
-
     deleteProduct: async (id) => {
         await axios.delete(`${BASE_URL}/product/all`, { data: { id: id } });
     },
 
     changeStatus: async (productId, newStatus) => {
         await axios.put(`${BASE_URL}/product/all`, null, {
-            headers: {
+            params: {
                 id: productId,
                 newStatus: newStatus,
             }
         });
     }
+
 
 };
